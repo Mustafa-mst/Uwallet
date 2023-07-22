@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#f1f3f6"
+    tools:context=".view.mainScreen.HomeFragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mainCardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        app:cardCornerRadius="10dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            >
+
+            <TextView
+                android:id="@+id/savingsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/inter_medium"
+                android:text="1,573 ₺"
+                android:textColor="#212a4b"
+                android:textSize="40sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Varlıklarım"
+                android:textColor="#377eff"
+                android:layout_above="@+id/savingsText"
+                android:fontFamily="@font/inter_medium"
+                android:textSize="18sp"></TextView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                app:cardCornerRadius="10dp"
+                android:layout_below="@+id/savingsText"
+                android:layout_margin="5dp"
+                android:elevation="40dp"
+                android:layout_centerHorizontal="true"
+                >
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#377eff"
+                    android:text="Para Ekle"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/secondpayment"
+        android:layout_below="@+id/mainCardview"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        app:cardElevation="10sp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sabit Giderler"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/inter_medium"
+                android:textColor="#377eff"></TextView>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Kira Giderleri"
+                android:fontFamily="@font/inter_medium"
+                android:textColor="#979daa"></TextView>
+            <TextView
+                android:id="@+id/rentPaymentText"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 ₺"
+                android:layout_marginLeft="10dp"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:fontFamily="@font/inter_medium"
+                android:textColor="#545d72"></TextView>
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Taksitler"
+                android:fontFamily="@font/inter_medium"
+                android:textColor="#979daa"></TextView>
+            <TextView
+                android:id="@+id/installmentsText"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="0 ₺"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:fontFamily="@font/inter_medium"
+                android:textColor="#545d72"></TextView>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aylık Giderler"
+        android:fontFamily="@font/inter_medium"
+        android:textSize="16sp"
+        android:textColor="#377eff"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:id="@+id/monthPaymentsTitle"
+        android:layout_below="@id/secondpayment"></TextView>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/monthPaymentsTitle"
+        app:cardElevation="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        app:cardCornerRadius="5dp"
+        android:layout_marginRight="20dp">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mainRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp"
+            android:fontFamily="@font/inter_medium"
+            ></androidx.recyclerview.widget.RecyclerView>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+</RelativeLayout>

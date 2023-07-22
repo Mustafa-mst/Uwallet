@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "107031140882",
+    "project_id": "pocket-86dca",
+    "storage_bucket": "pocket-86dca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107031140882:android:687b5879b70aa8210c56cb",
+        "android_client_info": {
+          "package_name": "com.mgulay.pocket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "107031140882-qgeonae38gencm3n9n2u3678e1k6ha2d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGhqN-Zuy4emJrl6Gsz-w-ObBeWe8mz_w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "107031140882-qgeonae38gencm3n9n2u3678e1k6ha2d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

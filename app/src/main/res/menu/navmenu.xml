@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/exchangePage" android:enabled="true" android:title="" android:icon="@drawable/baseline_currency_exchange_24"></item>
+    <item android:id="@+id/homePage" android:title="" android:enabled="true" android:icon="@drawable/baseline_home_24"></item>
+    <item android:id="@+id/chartPage" android:title="" android:enabled="true" android:icon="@drawable/baseline_pie_chart_24"></item>
+</menu>

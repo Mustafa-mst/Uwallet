@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.loginStuff.LoginFragment">
+<androidx.cardview.widget.CardView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="40dp"
+    android:layout_centerInParent="true"
+    android:layout_marginTop="30dp"
+    android:layout_marginStart="30dp"
+    android:layout_marginEnd="30dp"
+
+    app:cardCornerRadius="40dp"
+    app:cardElevation="10dp"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/titleTextLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="Giriş"
+            android:textColor="#000000"
+            android:textSize="48sp"></TextView>
+
+        <TextView
+            android:id="@+id/emailTextLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleTextLogin"
+            android:layout_alignStart="@id/emailEditLogin"
+            android:fontFamily="@font/inter_medium"
+            android:text="Email Adresi"
+            android:textColor="#377eff"></TextView>
+        <EditText
+            android:id="@+id/emailEditLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/emailTextLogin"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:backgroundTint="#377eff"
+            android:textColor="@color/black"></EditText>
+
+        <TextView
+            android:id="@+id/passwordTextLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/emailEditLogin"
+            android:layout_alignStart="@id/passwordEditLogin"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="Şifre"
+            android:textColor="#377eff"
+            android:textStyle="normal"></TextView>
+        <EditText
+            android:id="@+id/passwordEditLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/passwordTextLogin"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:backgroundTint="#377eff"
+            android:textColor="@color/black"></EditText>
+
+        <TextView
+            android:id="@+id/registerPageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/passwordEditLogin"
+            android:layout_alignEnd="@+id/passwordEditLogin"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="Hesap Oluştur ->"
+            android:textColor="@color/black"
+            android:textSize="10sp"></TextView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/passwordEditLogin"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
+            android:background="#377eff"
+            android:fontFamily="@font/inter_medium"
+            android:text="Giriş Yap"
+            android:textAllCaps="false"
+            android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
+    
+    
+    
+    
+</RelativeLayout>
