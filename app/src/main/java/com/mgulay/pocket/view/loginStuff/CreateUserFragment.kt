@@ -49,19 +49,21 @@ private lateinit var database:FirebaseFirestore
 
        if (!userName.isNullOrEmpty()&&!email.isNullOrEmpty()&&!password.isNullOrEmpty()){
            binding.progress.visibility=View.VISIBLE
+           binding.groupCreate.visibility=View.GONE
             auth.createUserWithEmailAndPassword(email,password).addOnSuccessListener {
                 var hashList= hashMapOf<String,Any>("userName" to userName,"userId" to auth.currentUser!!.uid)
                 database.collection("Users").add(hashList)
-                val action =CreateUserFragmentDirections.actionCreateUserFragmentToLoginFragment()
+                val action =CreateUserFragmentDirections.actionCreateUserFragmentToLoginFragment(1)
                 Navigation.findNavController(view).navigate(action)
 
             }.addOnFailureListener {
                 binding.progress.visibility=View.GONE
+                binding.groupCreate.visibility=View.VISIBLE
                 Snackbar.make(view,it.localizedMessage,Snackbar.LENGTH_SHORT).show()
             }
 
        }else{
-           Snackbar.make(view,"Lütfen Tüm Kısımları Doldurunuz !",Snackbar.LENGTH_SHORT).show()
+           Snackbar.make(view,"Lütfen Tüm Alanları Doldurunuz !",Snackbar.LENGTH_SHORT).show()
        }
 
    }

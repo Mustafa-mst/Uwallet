@@ -3,87 +3,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#e3faf2"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.loginStuff.LoginFragment">
-<androidx.cardview.widget.CardView
+<ProgressBar
+    android:id="@+id/progressLogin"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="40dp"
     android:layout_centerInParent="true"
-    android:layout_marginTop="30dp"
-    android:layout_marginStart="30dp"
-    android:layout_marginEnd="30dp"
-
-    app:cardCornerRadius="40dp"
-    app:cardElevation="10dp"
-    >
-    <RelativeLayout
+    android:visibility="gone"
+    ></ProgressBar>
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        >
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/u"
+            android:layout_toLeftOf="@+id/titleU"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="20dp"></ImageView>
+        <TextView
+            android:id="@+id/titleU"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="wallet"
+            android:fontFamily="@font/quicksand_bold"
+            android:layout_centerHorizontal="true"
+            android:textSize="18sp"
+            android:layout_marginTop="5dp"></TextView>
+    </LinearLayout>
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/groupLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:background="@drawable/baloon"
+        >
 
         <TextView
             android:id="@+id/titleTextLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/emailEditLoginLayout"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:fontFamily="@font/inter_medium"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/inter_light"
             android:text="Giriş"
             android:textColor="#000000"
-            android:textSize="48sp"></TextView>
-
-        <TextView
-            android:id="@+id/emailTextLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/titleTextLogin"
-            android:layout_alignStart="@id/emailEditLogin"
-            android:fontFamily="@font/inter_medium"
-            android:text="Email Adresi"
-            android:textColor="#377eff"></TextView>
-        <EditText
-            android:id="@+id/emailEditLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/emailTextLogin"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:backgroundTint="#377eff"
-            android:textColor="@color/black"></EditText>
-
-        <TextView
-            android:id="@+id/passwordTextLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/emailEditLogin"
-            android:layout_alignStart="@id/passwordEditLogin"
-            android:layout_marginTop="30dp"
-            android:fontFamily="@font/inter_medium"
-            android:text="Şifre"
-            android:textColor="#377eff"
-            android:textStyle="normal"></TextView>
-        <EditText
-            android:id="@+id/passwordEditLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/passwordTextLogin"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:backgroundTint="#377eff"
-            android:textColor="@color/black"></EditText>
+            android:textSize="24sp"></TextView>
 
         <TextView
             android:id="@+id/registerPageText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/passwordEditLogin"
-            android:layout_alignEnd="@+id/passwordEditLogin"
+            android:layout_below="@id/passwordEditLoginLayout"
+            android:layout_alignEnd="@+id/passwordEditLoginLayout"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
@@ -94,24 +81,75 @@
             android:textSize="10sp"></TextView>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/logInButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/passwordEditLogin"
+            android:layout_below="@id/passwordEditLoginLayout"
             android:layout_marginStart="30dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="30dp"
-            android:background="#377eff"
+            android:background="#5f8f7f"
             android:fontFamily="@font/inter_medium"
             android:text="Giriş Yap"
             android:textAllCaps="false"
             android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailEditLoginLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titleTextLogin"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/inter_light"
+            android:hint="Email"
+            android:textColorHint="#00AE4D"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#00AE4D"
+            app:endIconMode="clear_text"
+            app:endIconTint="#00AE4D"
+            app:hintTextColor="#00AE4D">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailEditLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_medium"
+                android:textColor="@color/black"
+                android:textColorHint="#d0d2d2" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordEditLoginLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/emailEditLoginLayout"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:fontFamily="@font/inter_medium"
+            android:hint="Password"
+            android:textColorHint="#00AE4D"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#00AE4D"
+            app:endIconTint="#00AE4D"
+            app:hintTextColor="#00AE4D"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="#00AE4D">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordEditLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_medium"
+                android:inputType="number|numberDecimal"
+                android:maxLength="6"
+                android:password="true"
+                android:textColor="@color/black" />
+        </com.google.android.material.textfield.TextInputLayout>
     </RelativeLayout>
 
 
-</androidx.cardview.widget.CardView>
-    
-    
-    
-    
+
 </RelativeLayout>

@@ -17,9 +17,13 @@ class AppActivity : AppCompatActivity() {
         replaceFragment(HomeFragment())
        binding.bottomNavigation.setOnItemSelectedListener {
           when(it.itemId){
-            R.id.homePage->replaceFragment(HomeFragment())
-            R.id.chartPage->replaceFragment(ChartFragment())
-            R.id.exchangePage->replaceFragment(ExchangeFragment())
+            R.id.homePage->{replaceFragment(HomeFragment())
+            true
+            }
+            R.id.chartPage->{replaceFragment(ChartFragment())
+            true}
+            R.id.exchangePage->{replaceFragment(ExchangeFragment())
+            true}
             else ->{}
           }
            true
@@ -27,6 +31,6 @@ class AppActivity : AppCompatActivity() {
        }
     }
     private fun replaceFragment(fragment:Fragment){
-        supportFragmentManager.beginTransaction().replace(com.google.android.material.R.id.container,fragment).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.container,fragment).commit()
     }
 }

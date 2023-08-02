@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/chicle</item>
+        <item>@font/inter_black</item>
+        <item>@font/inter_bold</item>
         <item>@font/inter_light</item>
         <item>@font/inter_medium</item>
         <item>@font/inter_thin</item>
         <item>@font/montserrat_subrayada</item>
         <item>@font/montserrat_subrayada_bold</item>
         <item>@font/pacifico</item>
+        <item>@font/proza_libre</item>
         <item>@font/quicksand_bold</item>
         <item>@font/quicksand_medium</item>
         <item>@font/roboto</item>

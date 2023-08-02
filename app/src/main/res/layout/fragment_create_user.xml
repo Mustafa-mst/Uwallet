@@ -3,39 +3,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f1f3f6"
+    android:background="#e3faf2"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.loginStuff.CreateUserFragment">
-<ProgressBar
-    android:id="@+id/progress"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
 
-    android:layout_above="@+id/cardView"
-    android:layout_centerHorizontal="true"
-    android:visibility="gone"
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:progressTint="#4CAF50"
+        android:visibility="gone"></ProgressBar>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        >
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/u"
+            android:layout_toLeftOf="@+id/titleU"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="20dp"></ImageView>
+        <TextView
+            android:id="@+id/titleU"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="wallet"
+            android:fontFamily="@font/quicksand_bold"
+            android:layout_centerHorizontal="true"
+            android:textSize="18sp"
+            android:layout_marginTop="5dp"></TextView>
 
-    ></ProgressBar>
 
-<androidx.cardview.widget.CardView
-    android:id="@+id/cardView"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/white"
-    android:layout_centerInParent="true"
-    android:layout_marginTop="30dp"
-    android:layout_marginStart="30dp"
-    android:layout_marginEnd="30dp"
-    app:cardElevation="10dp"
-    android:layout_marginBottom="30dp"
-    android:padding="20dp"
-    app:cardCornerRadius="20dp"
-    >
+    </LinearLayout>
+
+
     <RelativeLayout
+        android:id="@+id/groupCreate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:layout_below="@+id/toolbarCreate"
+        android:layout_centerVertical="true"
         >
 
         <TextView
@@ -43,18 +56,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
+            android:layout_alignStart="@+id/usernameEditLayout"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:fontFamily="@font/inter_medium"
+            android:fontFamily="@font/inter_light"
             android:text="Kayıt Ol"
             android:textColor="#000000"
-            android:textSize="48sp"></TextView>
+            android:textSize="24sp"></TextView>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/usernameEditCreate"
+            android:id="@+id/usernameEditLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/titleTextCreate"
@@ -62,55 +75,71 @@
             android:layout_marginRight="30dp"
             android:hint="Kullanıcı Adı"
             android:textColor="@color/black"
-            android:textColorHint="#377eff"
-            app:boxStrokeColor="#377EFF"
+            android:textColorHint="#00AE4D"
+            app:boxStrokeColor="#00AE4D"
             app:counterEnabled="false"
             app:endIconMode="clear_text"
-            app:passwordToggleEnabled="false">
+            app:endIconTint="#00AE4D"
+            app:hintTextColor="#00AE4D"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/usernameEditCreate"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailEditCreate"
+            android:id="@+id/emailEditLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/usernameEditCreate"
+            android:layout_below="@+id/usernameEditLayout"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="40dp"
             android:layout_marginRight="30dp"
             android:hint="Email"
+            app:hintTextColor="#00AE4D"
             android:textColor="@color/black"
-            android:textColorHint="#377eff"
-            app:endIconMode="clear_text">
+            android:textColorHint="#00AE4D"
+            app:boxStrokeColor="#00AE4D"
+            app:endIconMode="clear_text"
+            app:endIconTint="#00AE4D">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailEditCreate"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passwordEditCreate"
+            android:id="@+id/passwordEditLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/emailEditCreate"
+            android:layout_below="@+id/emailEditLayout"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="40dp"
             android:layout_marginRight="30dp"
             android:hint="Şifre"
+            app:hintTextColor="#00AE4D"
             android:textColor="@color/black"
-            android:textColorHint="#377eff"
+            android:textColorHint="#00AE4D"
+            app:boxStrokeColor="#00AE4D"
             app:counterEnabled="true"
             app:counterMaxLength="6"
-            app:passwordToggleEnabled="true">
+            app:endIconTint="#00AE4D"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="#00AE4D">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordEditCreate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number|numberDecimal"
-                android:password="true" />
+                android:maxLength="6"
+                android:password="true"
+                android:textColor="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -118,20 +147,19 @@
             android:id="@+id/registerButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/passwordEditCreate"
+            android:layout_below="@id/passwordEditLayout"
             android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="30dp"
             android:textAllCaps="false"
-            android:background="#377eff"
+            android:background="#5f8f7f"
             android:fontFamily="@font/inter_medium"
             android:onClick="register"
             android:text="Kayıt ol"
             android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
     </RelativeLayout>
 
-</androidx.cardview.widget.CardView>
 
 
 

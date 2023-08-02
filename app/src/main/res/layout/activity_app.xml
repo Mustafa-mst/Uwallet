@@ -7,12 +7,21 @@
     android:background="#f1f3f6"
     tools:context=".view.mainScreen.AppActivity">
 
+<FrameLayout
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@+id/bottomNavigation"
+    ></FrameLayout>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-
+        android:layout_height="wrap_content"
+        app:itemIconTint="@drawable/bottom_icon"
         android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        app:labelVisibilityMode="unlabeled"
         app:menu="@menu/navmenu"></com.google.android.material.bottomnavigation.BottomNavigationView>
 
 
