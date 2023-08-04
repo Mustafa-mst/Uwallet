@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.core.view.marginBottom
 import androidx.core.view.setPadding
 import androidx.lifecycle.ViewModelProvider
@@ -48,28 +49,57 @@ open class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         initialize(view)
+
 
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewModel.InsertFirebase(database,auth)
+    }
+
+
+
 
     private fun observeData(){
-        viewModel.installmentsText.observe(viewLifecycleOwner){
-            if (!it.isNullOrEmpty()){
-                binding.installmentsText.text=it
+        viewModel.progressBar.observe(viewLifecycleOwner){
+            if (it){
+            binding.fragmentProgress.visibility=View.VISIBLE
+                binding.greetingText.visibility=View.GONE
+                binding.warningText.visibility=View.GONE
+                binding.mainCardview.visibility=View.GONE
+                binding.regularExtenseTitle.visibility=View.GONE
+                binding.secondpayment.visibility=View.GONE
+                binding.monthlyExes.visibility=View.GONE
 
+            }else{
+                binding.fragmentProgress.visibility=View.GONE
+                binding.greetingText.visibility=View.VISIBLE
+                binding.warningText.visibility=View.VISIBLE
+                binding.mainCardview.visibility=View.VISIBLE
+                binding.regularExtenseTitle.visibility=View.VISIBLE
+                binding.secondpayment.visibility=View.VISIBLE
+                binding.monthlyExes.visibility=View.VISIBLE
+            }
+        }
+        viewModel.installmentsText.observe(viewLifecycleOwner){
+            if (it!=null){
+                binding.installmentsText.text=it.toString()
             }
         }
         viewModel.rentPaymentText.observe(viewLifecycleOwner){
-            if (!it.isNullOrEmpty()){
-                binding.rentPaymentText.text=it
+            if (it!=null){
+                binding.rentPaymentText.text=it.toString()
 
             }
         }
         viewModel.savingsText.observe(viewLifecycleOwner){
-            if (!it.isNullOrEmpty()){
+            if (it!=null){
                 binding.savingsText.text="${it}₺"
-
+            }else{
+                binding.savingsText.text="0₺"
             }
         }
         viewModel.totalExtenses.observe(viewLifecycleOwner){
@@ -95,11 +125,13 @@ open class HomeFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         database= FirebaseFirestore.getInstance()
         viewModel = ViewModelProvider(this).get(HomeFragmentVievModel::class.java)
-        viewModel.GetFromFirebase(database,auth)
         adapter= recyclerAdapter(arrayListOf())
+        binding.mainRecycler.adapter=adapter
+        viewModel.GetFromFirebase(adapter,view,database,auth,requireActivity())
+
         binding.mainRecycler.layoutManager=LinearLayoutManager(view.context)
         binding.mainRecycler.addItemDecoration(DividerItemDecoration(view.context,DividerItemDecoration.VERTICAL))
-        binding.mainRecycler.adapter=adapter
+
         binding.changeSaving.setOnClickListener {
             viewModel.changeTheSavings(it,requireContext(),binding.changeRegularExes,binding.addExpenses,binding.warningText)
         }
@@ -112,7 +144,7 @@ open class HomeFragment : Fragment() {
             )
         }
         binding.addExpenses.setOnClickListener {
-            viewModel.addExpenses(it,adapter)
+            viewModel.addExpenses(requireActivity(),it,adapter,binding.recyclerCard)
         }
         binding.changeRegularExes.setOnClickListener { viewModel.changeTheRegularExes(it,requireContext()) }
         observeData()

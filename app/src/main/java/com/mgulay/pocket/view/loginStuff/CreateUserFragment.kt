@@ -52,7 +52,7 @@ private lateinit var database:FirebaseFirestore
            binding.groupCreate.visibility=View.GONE
             auth.createUserWithEmailAndPassword(email,password).addOnSuccessListener {
                 var hashList= hashMapOf<String,Any>("userName" to userName,"userId" to auth.currentUser!!.uid)
-                database.collection("Users").add(hashList)
+                database.collection("Users").document(auth.currentUser!!.uid).set(hashList)
                 val action =CreateUserFragmentDirections.actionCreateUserFragmentToLoginFragment(1)
                 Navigation.findNavController(view).navigate(action)
 
