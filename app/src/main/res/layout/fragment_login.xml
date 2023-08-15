@@ -3,52 +3,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e3faf2"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.loginStuff.LoginFragment">
-<ProgressBar
-    android:id="@+id/progressLogin"
+
+    <ProgressBar
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_centerInParent="true"
     android:visibility="gone"
+    android:id="@+id/progressLogin"
     ></ProgressBar>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:layout_alignParentTop="true"
-        >
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/u"
-            android:layout_toLeftOf="@+id/titleU"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="20dp"></ImageView>
-        <TextView
-            android:id="@+id/titleU"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="wallet"
-            android:fontFamily="@font/quicksand_bold"
-            android:layout_centerHorizontal="true"
-            android:textSize="18sp"
-            android:layout_marginTop="5dp"></TextView>
-    </LinearLayout>
-
-
-
 
     <RelativeLayout
         android:id="@+id/groupLogin"
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:background="@drawable/baloon"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="80dp"
         >
+
 
         <TextView
             android:id="@+id/titleTextLogin"
@@ -57,16 +34,15 @@
             android:layout_alignStart="@+id/emailEditLoginLayout"
             android:layout_alignParentTop="true"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginStart="20dp"
-            android:fontFamily="@font/inter_light"
+            android:layout_marginBottom="60dp"
+            android:fontFamily="@font/graphik_medium"
             android:text="Giriş"
-            android:textColor="#000000"
-            android:textSize="24sp"></TextView>
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            ></TextView>
 
         <TextView
-            android:id="@+id/registerPageText"
+            android:id="@+id/forgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/passwordEditLoginLayout"
@@ -74,10 +50,11 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
+            android:backgroundTint="@color/white"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/inter_medium"
-            android:text="Hesap Oluştur ->"
-            android:textColor="@color/black"
+            android:text="Şifremi Unuttum ->"
+            android:textColor="#2752E7"
             android:textSize="10sp"></TextView>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -86,39 +63,59 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/passwordEditLoginLayout"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="60dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginBottom="30dp"
-            android:background="#5f8f7f"
-            android:fontFamily="@font/inter_medium"
+            android:layout_marginBottom="40dp"
+            android:background="@drawable/baloon"
+            android:fontFamily="@font/graphik_medium"
             android:text="Giriş Yap"
             android:textAllCaps="false"
             android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
+
+        <TextView
+            android:id="@+id/registerQst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logInButton"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif"
+            android:text="Uwallet üyeliğin yok mu ?"
+            android:textColor="@color/black"></TextView>
+
+        <TextView
+            android:id="@+id/registerPageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/registerQst"
+            android:layout_centerInParent="true"
+            android:text="Üye Ol"
+            android:textColor="#2752E7" />
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/emailEditLoginLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/titleTextLogin"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
-            android:layout_marginBottom="20dp"
-            android:fontFamily="@font/inter_light"
-            android:hint="Email"
-            android:textColorHint="#00AE4D"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="@font/graphik_regular"
+            android:hint="Lütfen e-posta girin"
+            android:textColorHint="#707070"
             app:boxBackgroundMode="outline"
-            app:boxStrokeColor="#00AE4D"
+            app:boxStrokeColor="#2752E7"
             app:endIconMode="clear_text"
-            app:endIconTint="#00AE4D"
-            app:hintTextColor="#00AE4D">
+            app:endIconTint="#707070"
+            app:hintTextColor="#2752E7">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailEditLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_medium"
                 android:textColor="@color/black"
-                android:textColorHint="#d0d2d2" />
+                android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -126,29 +123,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/emailEditLoginLayout"
-            android:layout_marginLeft="50dp"
-            android:layout_marginRight="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:fontFamily="@font/inter_medium"
-            android:hint="Password"
-            android:textColorHint="#00AE4D"
-            app:boxBackgroundMode="outline"
-            app:boxStrokeColor="#00AE4D"
-            app:endIconTint="#00AE4D"
-            app:hintTextColor="#00AE4D"
             app:passwordToggleEnabled="true"
-            app:passwordToggleTint="#00AE4D">
+            android:hint="Lütfen şifre girin"
+            android:textColorHint="#707070"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeColor="#2752E7"
+            app:endIconTint="#707070"
+            app:hintTextColor="#2752E7"
+            app:passwordToggleTint="#707070">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordEditLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_medium"
                 android:inputType="number|numberDecimal"
                 android:maxLength="6"
                 android:password="true"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
     </RelativeLayout>
+
+
 
 
 

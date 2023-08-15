@@ -39,6 +39,10 @@ private lateinit var database:FirebaseFirestore
         binding.registerButton.setOnClickListener {
             register(it)
         }
+        binding.goToLoginText.setOnClickListener {
+            val action=CreateUserFragmentDirections.actionCreateUserFragmentToLoginFragment()
+            Navigation.findNavController(it).navigate(action)
+        }
 
     }
 
@@ -59,11 +63,13 @@ private lateinit var database:FirebaseFirestore
             }.addOnFailureListener {
                 binding.progress.visibility=View.GONE
                 binding.groupCreate.visibility=View.VISIBLE
-                Snackbar.make(view,it.localizedMessage,Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(view,it.localizedMessage,Snackbar.LENGTH_SHORT).setTextColor(
+                    Color.parseColor("#FFFFFF")).setBackgroundTint(Color.parseColor("#2752E7")).show()
             }
 
        }else{
-           Snackbar.make(view,"Lütfen Tüm Alanları Doldurunuz !",Snackbar.LENGTH_SHORT).show()
+           Snackbar.make(view,"Lütfen Tüm Alanları Doldurunuz !",Snackbar.LENGTH_SHORT).setTextColor(
+               Color.parseColor("#FFFFFF")).setBackgroundTint(Color.parseColor("#2752E7")).show()
        }
 
    }

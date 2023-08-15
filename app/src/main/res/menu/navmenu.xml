@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/exchangePage"  android:title="" android:icon="@drawable/baseline_currency_exchange_24"></item>
-    <item android:id="@+id/homePage" android:title=""  android:icon="@drawable/baseline_home_24"></item>
-    <item android:id="@+id/chartPage" android:title="" android:icon="@drawable/baseline_pie_chart_24"></item>
+
+    <item android:id="@+id/homePage" android:title="Ev"  android:icon="@drawable/home__1_"></item>
+    <item android:id="@+id/exchangePage"  android:title="Kurlar" android:icon="@drawable/usd_circle__1_"></item>
+    <item android:id="@+id/chartPage" android:title="Grafik" android:icon="@drawable/chart_pie_alt"></item>
 </menu>

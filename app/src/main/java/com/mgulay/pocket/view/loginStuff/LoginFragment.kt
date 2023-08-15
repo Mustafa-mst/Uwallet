@@ -1,6 +1,7 @@
 package com.mgulay.pocket.view.loginStuff
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -43,6 +44,10 @@ class LoginFragment : Fragment() {
                 }
             }
         }
+        binding.forgotPassword.setOnClickListener {
+            val action=LoginFragmentDirections.actionLoginFragmentToForgotFragment()
+            Navigation.findNavController(view).navigate(action)
+        }
 
         binding.registerPageText.setOnClickListener {
             goToRegister(it)
@@ -73,10 +78,12 @@ class LoginFragment : Fragment() {
             }.addOnFailureListener {
                 binding.progressLogin.visibility=View.GONE
                 binding.groupLogin.visibility=View.VISIBLE
-                Snackbar.make(view,it.localizedMessage, Snackbar.LENGTH_SHORT).show()
+                Snackbar.make(view,it.localizedMessage, Snackbar.LENGTH_SHORT).setTextColor(
+                    Color.parseColor("#FFFFFF")).setBackgroundTint(Color.parseColor("#2752E7")).show()
             }
         }else{
-            Snackbar.make(view,"Lütfen Tüm Alanları Doldurunuz !", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(view,"Lütfen Tüm Alanları Doldurunuz !", Snackbar.LENGTH_SHORT).setTextColor(
+                Color.parseColor("#FFFFFF")).setBackgroundTint(Color.parseColor("#2752E7")).show()
         }
     }
 

@@ -49,7 +49,9 @@ open class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.exchangeCardView.setOnClickListener {
+            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.container,ExchangeFragment()).commit()
+        }
         initialize(view)
 
 
@@ -70,6 +72,7 @@ open class HomeFragment : Fragment() {
                 binding.greetingText.visibility=View.GONE
                 binding.warningText.visibility=View.GONE
                 binding.mainCardview.visibility=View.GONE
+                binding.recyclerCard.visibility=View.GONE
                 binding.regularExtenseTitle.visibility=View.GONE
                 binding.secondpayment.visibility=View.GONE
                 binding.monthlyExes.visibility=View.GONE
@@ -79,6 +82,7 @@ open class HomeFragment : Fragment() {
                 binding.greetingText.visibility=View.VISIBLE
                 binding.warningText.visibility=View.VISIBLE
                 binding.mainCardview.visibility=View.VISIBLE
+                binding.recyclerCard.visibility=View.VISIBLE
                 binding.regularExtenseTitle.visibility=View.VISIBLE
                 binding.secondpayment.visibility=View.VISIBLE
                 binding.monthlyExes.visibility=View.VISIBLE
@@ -86,20 +90,26 @@ open class HomeFragment : Fragment() {
         }
         viewModel.installmentsText.observe(viewLifecycleOwner){
             if (it!=null){
-                binding.installmentsText.text=it.toString()
+                binding.installmentsText.text="${it.toString()}₺"
             }
         }
         viewModel.rentPaymentText.observe(viewLifecycleOwner){
             if (it!=null){
-                binding.rentPaymentText.text=it.toString()
+                binding.rentPaymentText.text="${it.toString()}₺"
 
             }
         }
         viewModel.savingsText.observe(viewLifecycleOwner){
-            if (it!=null){
+            if (it!=null&&it!=0){
                 binding.savingsText.text="${it}₺"
+                binding.addExpenses.visibility=View.VISIBLE
+                binding.changeRegularExes.visibility=View.VISIBLE
+                binding.warningText.visibility=View.GONE
             }else{
                 binding.savingsText.text="0₺"
+                binding.addExpenses.visibility=View.GONE
+                binding.changeRegularExes.visibility=View.GONE
+                binding.warningText.visibility=View.VISIBLE
             }
         }
         viewModel.totalExtenses.observe(viewLifecycleOwner){
@@ -108,32 +118,33 @@ open class HomeFragment : Fragment() {
 
             }
         }
-        viewModel.remaining.observe(viewLifecycleOwner){
-            if (it!=0&&it!=null){
-                binding.remainingText.text="=${it}₺"
-            }
-        }
+
         viewModel.userName.observe(viewLifecycleOwner){
             if (!it.isNullOrEmpty()){
-                binding.greetingText.text="Hoşgeldin,${it}"
+                var a=it.split(" ")
+                binding.greetingText.text="Hoşgeldin,${a.get(0).capitalize()}"
+                binding.nameTxt.text=it.capitalize()
+            }
+        }
+        viewModel.isEmpty.observe(viewLifecycleOwner){
+            if (!it){
+                binding.isEmpty.visibility=View.GONE
+                binding.mainRecycler.visibility=View.VISIBLE
             }
         }
 
     }
     private fun initialize(view:View){
-
         auth = FirebaseAuth.getInstance()
         database= FirebaseFirestore.getInstance()
         viewModel = ViewModelProvider(this).get(HomeFragmentVievModel::class.java)
         adapter= recyclerAdapter(arrayListOf())
         binding.mainRecycler.adapter=adapter
-        viewModel.GetFromFirebase(adapter,view,database,auth,requireActivity())
-
+        viewModel.GetFromFirebase(adapter,view,database,auth)
         binding.mainRecycler.layoutManager=LinearLayoutManager(view.context)
         binding.mainRecycler.addItemDecoration(DividerItemDecoration(view.context,DividerItemDecoration.VERTICAL))
-
         binding.changeSaving.setOnClickListener {
-            viewModel.changeTheSavings(it,requireContext(),binding.changeRegularExes,binding.addExpenses,binding.warningText)
+            viewModel.changeTheSavings(it,requireContext())
         }
         binding.exitButton.setOnClickListener {
             viewModel.exitTheApp(
@@ -144,7 +155,7 @@ open class HomeFragment : Fragment() {
             )
         }
         binding.addExpenses.setOnClickListener {
-            viewModel.addExpenses(requireActivity(),it,adapter,binding.recyclerCard)
+            viewModel.addExpenses(it,adapter,auth,database)
         }
         binding.changeRegularExes.setOnClickListener { viewModel.changeTheRegularExes(it,requireContext()) }
         observeData()

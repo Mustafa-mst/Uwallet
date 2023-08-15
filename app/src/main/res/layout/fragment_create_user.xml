@@ -3,68 +3,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e3faf2"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.loginStuff.CreateUserFragment">
 
     <ProgressBar
-        android:id="@+id/progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:progressTint="#4CAF50"
-        android:visibility="gone"></ProgressBar>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
-        android:layout_alignParentTop="true"
-        >
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/u"
-            android:layout_toLeftOf="@+id/titleU"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="20dp"></ImageView>
-        <TextView
-            android:id="@+id/titleU"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="wallet"
-            android:fontFamily="@font/quicksand_bold"
-            android:layout_centerHorizontal="true"
-            android:textSize="18sp"
-            android:layout_marginTop="5dp"></TextView>
-
-
-    </LinearLayout>
-
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/progress"
+    android:layout_centerInParent="true"
+    android:visibility="gone"></ProgressBar>
 
     <RelativeLayout
         android:id="@+id/groupCreate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         android:layout_centerVertical="true"
-        >
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp">
 
         <TextView
             android:id="@+id/titleTextCreate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_alignStart="@+id/usernameEditLayout"
-            android:layout_marginStart="20dp"
+            android:layout_alignParentTop="true"
             android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:fontFamily="@font/inter_light"
-            android:text="Kayıt Ol"
-            android:textColor="#000000"
-            android:textSize="24sp"></TextView>
+            android:layout_marginBottom="40dp"
+            android:fontFamily="@font/graphik_medium"
+            android:text="Üye Ol"
+            android:textColor="@color/black"
+            android:textSize="20sp"></TextView>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/usernameEditLayout"
@@ -73,21 +43,24 @@
             android:layout_below="@+id/titleTextCreate"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:hint="Kullanıcı Adı"
+            android:hint="Lütfen ad ve soyadınızı yazın"
+            app:helperText="Lütfen isim ve soyisim arasına boşluk bırakınız!"
+            app:helperTextTextColor="@android:color/holo_red_light"
             android:textColor="@color/black"
-            android:textColorHint="#00AE4D"
-            app:boxStrokeColor="#00AE4D"
+            android:textColorHint="#707070"
+            app:boxStrokeColor="#2752E7"
             app:counterEnabled="false"
             app:endIconMode="clear_text"
-            app:endIconTint="#00AE4D"
-            app:hintTextColor="#00AE4D"
-            >
+            app:endIconTint="#707070"
+            app:hintTextColor="#2752E7">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/usernameEditCreate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black" />
+                android:fontFamily="sans-serif"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -96,21 +69,22 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/usernameEditLayout"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="30dp"
-            android:hint="Email"
-            app:hintTextColor="#00AE4D"
+            android:hint="Lütfen e-postanızı yazın"
             android:textColor="@color/black"
-            android:textColorHint="#00AE4D"
-            app:boxStrokeColor="#00AE4D"
+            android:textColorHint="#707070"
+            app:boxStrokeColor="#2752E7"
             app:endIconMode="clear_text"
-            app:endIconTint="#00AE4D">
+            app:endIconTint="#707070"
+            app:hintTextColor="#2752E7">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailEditCreate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -119,18 +93,18 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/emailEditLayout"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="30dp"
-            android:hint="Şifre"
-            app:hintTextColor="#00AE4D"
+            android:hint="Lütfen şifrenizi yazın"
             android:textColor="@color/black"
-            android:textColorHint="#00AE4D"
-            app:boxStrokeColor="#00AE4D"
+            android:textColorHint="#707070"
+            app:boxStrokeColor="#2752E7"
             app:counterEnabled="true"
             app:counterMaxLength="6"
-            app:endIconTint="#00AE4D"
+            app:endIconTint="#2752E7"
+            app:hintTextColor="#2752E7"
             app:passwordToggleEnabled="true"
-            app:passwordToggleTint="#00AE4D">
+            app:passwordToggleTint="#707070">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordEditCreate"
@@ -139,7 +113,8 @@
                 android:inputType="number|numberDecimal"
                 android:maxLength="6"
                 android:password="true"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -151,13 +126,33 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginBottom="30dp"
-            android:textAllCaps="false"
-            android:background="#5f8f7f"
-            android:fontFamily="@font/inter_medium"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/baloon"
+            android:fontFamily="@font/graphik_medium"
             android:onClick="register"
-            android:text="Kayıt ol"
+            android:text="Başla"
+            android:textAllCaps="false"
             android:textColor="@color/white"></androidx.appcompat.widget.AppCompatButton>
+
+        <TextView
+            android:id="@+id/questionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/registerButton"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="sans-serif"
+            android:text="Uwallet'ta üyeliğin var mı ?"></TextView>
+
+        <TextView
+            android:id="@+id/goToLoginText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/questionText"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/graphik_medium"
+            android:text="Giriş Yap"
+            android:textColor="#2752E7" />
     </RelativeLayout>
 
 

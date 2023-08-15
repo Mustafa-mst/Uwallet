@@ -17,7 +17,8 @@ class AppActivity : AppCompatActivity() {
         replaceFragment(HomeFragment())
        binding.bottomNavigation.setOnItemSelectedListener {
           when(it.itemId){
-            R.id.homePage->{replaceFragment(HomeFragment())
+            R.id.homePage->{
+                replaceFragment(HomeFragment())
             true
             }
             R.id.chartPage->{replaceFragment(ChartFragment())

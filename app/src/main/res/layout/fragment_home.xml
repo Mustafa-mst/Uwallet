@@ -1,75 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#eefcf8"
-    tools:context=".view.mainScreen.HomeFragment">
+    tools:context=".view.mainScreen.HomeFragment"
+    >
+    <RelativeLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/line"
+        >
+
+        <TextView
+            android:id="@+id/titleU"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cüzdan"
+            android:textColor="@color/black"
+
+            android:layout_centerHorizontal="true"
+            android:textSize="14sp"
+            ></TextView>
+        <ImageView
+            android:id="@+id/exitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_exit_to_app_24"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+
+            ></ImageView>
+    </RelativeLayout>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   android:layout_below="@+id/topBar"
+    android:scrollbars="none"
+   >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-           android:layout_marginTop="20dp"
-            >
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_centerHorizontal="true">
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/u"
-                    android:layout_toLeftOf="@+id/titleU"
-                    ></ImageView>
-                <TextView
-                    android:id="@+id/titleU"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="wallet"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/quicksand_bold"
-                    android:layout_centerHorizontal="true"
-                    android:textSize="18sp"
-                    ></TextView>
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/exitButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/baseline_exit_to_app_24"
-                android:layout_alignParentEnd="true"
-                android:layout_marginRight="20dp"
-                ></ImageView>
-
-        </RelativeLayout>
-
-
+        android:orientation="vertical"
+        >
         <TextView
             android:id="@+id/greetingText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hoşgeldin"
             android:textColor="#000000"
-            android:textStyle="bold"
+            android:fontFamily="@font/graphik_medium"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="8dp"
-            android:textSize="34sp" />
+            android:textSize="24sp" />
         <TextView
             android:id="@+id/warningText"
             android:layout_width="wrap_content"
+            android:fontFamily="@font/graphik_medium"
             android:layout_height="wrap_content"
             android:text="*Gider Girmeden Önce Varlık Girmelisin"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="40dp"
             android:textColor="@android:color/holo_red_light"></TextView>
 
     <androidx.cardview.widget.CardView
@@ -77,15 +72,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardElevation="10dp"
-        app:cardCornerRadius="5dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+
 
         >
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:padding="8dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/card"
             >
 
             <TextView
@@ -94,57 +91,64 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/netWorth"
                 android:layout_alignStart="@+id/netWorth"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginRight="10dp"
-                android:fontFamily="@font/inter_medium"
+                android:padding="5dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/graphik_regular"
                 android:text="0 ₺"
-                android:textColor="@color/black"
-                android:textSize="34sp"
-                 />
+                android:textColor="@color/white"
+                android:textSize="28sp" />
             <TextView
                 android:id="@+id/expensesTotalText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-0 ₺"
-                android:textColor="@android:color/holo_red_dark"
-                android:layout_below="@id/savingsText"
-                android:layout_alignEnd="@id/savingsText"
+                android:textColor="@android:color/holo_red_light"
+                android:layout_alignBaseline="@+id/savingsText"
+                android:layout_toRightOf="@+id/savingsText"
                 android:textSize="18sp"></TextView>
-            <TextView
-                android:id="@+id/remainingText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/expensesTotalText"
-                android:textSize="14sp"
-                android:text="0"
-                android:layout_alignEnd="@id/expensesTotalText"></TextView>
+
+                <TextView
+                    android:id="@+id/nameTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/expensesTotalText"
+                    android:text="Mustafa Gülay"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/graphik_medium"
+                   android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="30dp"
+                    android:textSize="16sp"></TextView>
 
 
             <TextView
                 android:id="@+id/netWorth"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_alignParentTop="true"
-                android:fontFamily="@font/quicksand_medium"
-                android:text="Varlıklarım"
-                android:textColor="#00AE4D"
-                android:textSize="20sp"
-                android:textStyle="bold"></TextView>
+                android:fontFamily="@font/graphik_medium"
+                android:text="Cüzdan"
+                android:textColor="@color/white"
+                android:textSize="22sp"></TextView>
+
             <ImageView
                 android:id="@+id/changeSaving"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/baseline_edit_24"
-                android:layout_toRightOf="@+id/savingsText"
-                android:layout_alignTop="@+id/savingsText"
-                app:tint="#16a085"></ImageView>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/gummy_wallet"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginLeft="50dp"
-                    android:scaleType="centerCrop"></ImageView>
+                android:layout_alignBottom="@+id/netWorth"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toRightOf="@+id/netWorth"
+                android:src="@drawable/add"
+                app:tint="@color/white"></ImageView>
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
@@ -154,45 +158,52 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:visibility="gone"></ProgressBar>
-        <TextView
-            android:id="@+id/regularExtenseTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/quicksand_medium"
-            android:text="Sabit Giderler"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="25sp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="10dp"
-            android:textStyle="bold"></TextView>
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:layout_marginTop="15dp"
+    >
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/secondpayment"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="40dp"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="15dp"
+        android:layout_gravity=""
         app:cardElevation="10sp">
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/secondpayment"
+            android:padding="10dp"
             android:orientation="vertical">
             <RelativeLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:orientation="horizontal">
+                android:padding="5dp">
+                <TextView
+                    android:id="@+id/regularExtenseTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/graphik_medium"
+                    android:text="Sabit Giderler"
+                    android:textColor="#2752E7"
+                    android:textSize="16sp"
+                    android:layout_marginTop="10dp"
+                    ></TextView>
 
                 <ImageView
                     android:id="@+id/changeRegularExes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
-                    android:layout_alignParentEnd="true"
-                    android:src="@drawable/baseline_edit_24"
-                    app:tint="#16a085"
+                    android:layout_margin="5dp"
+                    android:layout_toRightOf="@id/regularExtenseTitle"
+                    android:layout_alignBottom="@+id/regularExtenseTitle"
+                    android:src="@drawable/add"
+                    app:tint="#2752E7"
                     ></ImageView>
             </RelativeLayout>
 
@@ -202,8 +213,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="Kira Giderleri"
-                android:fontFamily="@font/inter_medium"
-                android:textColor="#979daa"></TextView>
+                android:fontFamily="@font/graphik_regular"
+                android:textColor="@color/black"></TextView>
             <TextView
                 android:id="@+id/rentPaymentText"
                 android:layout_marginTop="10dp"
@@ -211,18 +222,17 @@
                 android:layout_height="wrap_content"
                 android:text="0 ₺"
                 android:layout_marginLeft="10dp"
-                android:textStyle="bold"
                 android:textSize="18sp"
                 android:fontFamily="@font/inter_medium"
-                android:textColor="#545d72"></TextView>
+                android:textColor="@color/black"></TextView>
             <TextView
                 android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="Taksitler"
-                android:fontFamily="@font/inter_medium"
-                android:textColor="#979daa"></TextView>
+                android:fontFamily="@font/graphik_regular"
+                android:textColor="@color/black"></TextView>
             <TextView
                 android:id="@+id/installmentsText"
                 android:layout_marginTop="10dp"
@@ -230,64 +240,119 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="0 ₺"
-                android:textStyle="bold"
                 android:textSize="18sp"
                 android:fontFamily="@font/inter_medium"
-                android:textColor="#545d72"></TextView>
+                android:textColor="@color/black"></TextView>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/exchangeCardView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="10sp"
+        >
         <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#2752E7"
+            android:padding="15dp"
+            android:orientation="vertical">
+           <ImageView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/piggy_bank"
+               android:layout_gravity="center"
+               android:layout_margin="15dp"
+               app:tint="@color/white"></ImageView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tasarruf et"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/graphik_medium"
+                ></TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tüm olanakları gör"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:fontFamily="@font/graphik_regular"
+                android:layout_margin="10dp"></TextView>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:src="@drawable/arrow_right"
+                app:tint="@color/white"></ImageView>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerCard"
+        app:cardElevation="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"
+        app:cardCornerRadius="15dp"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="@color/white"
+        android:layout_marginBottom="10dp">
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            >
             <TextView
                 android:id="@+id/monthlyExes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Aylık Giderler"
-
-                android:textStyle="bold"
-                android:fontFamily="@font/quicksand_medium"
+                android:fontFamily="@font/graphik_medium"
                 android:textAlignment="center"
-                android:textColor="@color/black"
+                android:textColor="#2752E7"
                 android:textSize="25sp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="25dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"
                 ></TextView>
             <ImageView
                 android:id="@+id/addExpenses"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
+                android:layout_alignBaseline="@id/monthlyExes"
                 android:layout_marginStart="10dp"
-                    android:layout_gravity="center_vertical"
                 android:layout_marginEnd="10dp"
                 android:visibility="gone"
-                android:src="@drawable/baseline_add_circle_24"
-                app:tint="#16a085"></ImageView>
-        </LinearLayout>
+                android:src="@drawable/add"
+                app:tint="#2752E7"
+                ></ImageView>
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/recyclerCard"
-        app:cardElevation="10dp"
-        android:visibility="gone"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        app:cardCornerRadius="5dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            >
-
+            <TextView
+                android:id="@+id/isEmpty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/monthlyExes"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/graphik_regular"
+                android:padding="30dp"
+                android:text="Girilmiş Gider Yok"></TextView>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/mainRecycler"
             android:layout_width="match_parent"
+            android:visibility="gone"
             android:layout_height="match_parent"
+            android:layout_below="@id/monthlyExes"
+            android:layout_marginTop="10dp"
             android:layout_alignParentBottom="true"
             android:fontFamily="@font/inter_medium"
             ></androidx.recyclerview.widget.RecyclerView>
@@ -303,3 +368,4 @@
 
 
 </ScrollView>
+</RelativeLayout>

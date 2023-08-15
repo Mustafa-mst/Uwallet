@@ -5,20 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".view.mainScreen.ChartFragment">
+
+
+  <TextView
+      android:id="@+id/titleU"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="Grafik"
+      android:background="@drawable/line"
+      android:textColor="@color/black"
+      android:textAlignment="center"
+      android:padding="15dp"
+      android:textSize="14sp"></TextView>
+  <ProgressBar
+      android:id="@+id/chartProgress"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:layout_margin="20dp"
+      android:visibility="gone"
+      >
+
+  </ProgressBar>
 
   <com.github.mikephil.charting.charts.PieChart
       android:id="@+id/pieChart"
       android:layout_width="match_parent"
       android:layout_height="0dp"
-      android:layout_weight="1"
-      android:padding="30dp"></com.github.mikephil.charting.charts.PieChart>
-  <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="0dp"
-    android:layout_weight="1"
+      android:layout_weight="2"
+      android:layout_margin="15dp"></com.github.mikephil.charting.charts.PieChart>
 
-      ></LinearLayout>
 
 
 </LinearLayout>
