@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:layout_margin="10dp">
+    <TextView
+        android:id="@+id/recyclerTypeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tür"
+        android:padding="5dp"
+        android:fontFamily="@font/graphik_medium"
+        android:textSize="14sp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="15dp"
+        android:textColor="@color/black"></TextView>
+
+    <TextView
+        android:id="@+id/recyclerDesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="5dp"
+        android:fontFamily="@font/graphik_regular"
+        android:text="Açıklama"
+        android:textColor="@color/black"
+        android:textSize="14sp"></TextView>
+    <TextView
+        android:id="@+id/recyclerValueText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fiyat"
+        android:layout_marginLeft="10dp"
+        android:fontFamily="@font/graphik_regular"
+        android:padding="5dp"
+        android:layout_alignParentRight="true"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:layout_marginRight="20dp"></TextView>
+
+
+</RelativeLayout>

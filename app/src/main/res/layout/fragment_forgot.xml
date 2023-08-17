@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.loginStuff.ForgotFragment">
+
+    <TextView
+        android:id="@+id/titleForgot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/line"
+        android:fontFamily="sans-serif"
+        android:padding="15dp"
+        android:text="Şifremi Unuttum"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="14sp"></TextView>
+
+    <ImageView
+        android:id="@+id/lockImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleForgot"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="25dp"
+        android:src="@drawable/lock01" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/forgotEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="40dp"
+        android:hint="Lütfen e-posta girin"
+        android:textColorHint="#707070"
+        app:boxStrokeColor="#2752E7"
+        app:endIconMode="clear_text"
+        app:hintTextColor="#2752E7"
+        android:layout_below="@+id/lockImg">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/forgotEmailValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+             />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sendCodeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/forgotEmail"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/baloon"
+        android:textColor="@color/white"
+        android:fontFamily="@font/graphik_medium"
+        android:text="Yenileme Kodu Yolla"
+        android:textAllCaps="false" />
+    <TextView
+        android:id="@+id/warningForgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kod mailinize gelmediyse ;"
+        android:layout_below="@+id/sendCodeBtn"
+        android:layout_alignStart="@+id/sendCodeBtn"
+        android:layout_marginTop="40dp"
+        android:textSize="16sp"
+        android:fontFamily="@font/graphik_medium"
+        android:textColor="@color/black"></TextView>
+    <TextView
+        android:layout_below="@+id/warningForgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="->Öncelikle internet bağlantızı kontrol edin\n->Girdiğiniz e-postayı kontrol edin\n->E-postanızın spam kutusuna bakın"
+        android:layout_alignStart="@+id/warningForgot"
+        android:textColor="@color/black"
+        android:textSize="16sp"></TextView>
+
+
+
+</RelativeLayout>

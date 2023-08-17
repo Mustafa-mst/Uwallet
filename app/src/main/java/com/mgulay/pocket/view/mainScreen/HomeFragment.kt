@@ -69,7 +69,6 @@ open class HomeFragment : Fragment() {
         viewModel.progressBar.observe(viewLifecycleOwner){
             if (it){
             binding.fragmentProgress.visibility=View.VISIBLE
-                binding.greetingText.visibility=View.GONE
                 binding.warningText.visibility=View.GONE
                 binding.mainCardview.visibility=View.GONE
                 binding.recyclerCard.visibility=View.GONE
@@ -79,13 +78,17 @@ open class HomeFragment : Fragment() {
 
             }else{
                 binding.fragmentProgress.visibility=View.GONE
-                binding.greetingText.visibility=View.VISIBLE
                 binding.warningText.visibility=View.VISIBLE
                 binding.mainCardview.visibility=View.VISIBLE
                 binding.recyclerCard.visibility=View.VISIBLE
                 binding.regularExtenseTitle.visibility=View.VISIBLE
                 binding.secondpayment.visibility=View.VISIBLE
                 binding.monthlyExes.visibility=View.VISIBLE
+            }
+        }
+        viewModel.username.observe(viewLifecycleOwner){
+            if (it!=null){
+                binding.nameTxt.text=it.capitalize()
             }
         }
         viewModel.installmentsText.observe(viewLifecycleOwner){
@@ -119,13 +122,7 @@ open class HomeFragment : Fragment() {
             }
         }
 
-        viewModel.userName.observe(viewLifecycleOwner){
-            if (!it.isNullOrEmpty()){
-                var a=it.split(" ")
-                binding.greetingText.text="Hoşgeldin,${a.get(0).capitalize()}"
-                binding.nameTxt.text=it.capitalize()
-            }
-        }
+
         viewModel.isEmpty.observe(viewLifecycleOwner){
             if (!it){
                 binding.isEmpty.visibility=View.GONE

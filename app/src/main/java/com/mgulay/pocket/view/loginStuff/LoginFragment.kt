@@ -12,6 +12,8 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.mgulay.pocket.databinding.FragmentLoginBinding
 import com.mgulay.pocket.view.mainScreen.AppActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 
 class LoginFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
@@ -32,18 +34,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         auth= FirebaseAuth.getInstance()
-        arguments?.let {
-            var id=LoginFragmentArgs.fromBundle(it).id
-            if (id==0){
-                auth.currentUser?.let {
-                    val intent= Intent(context,AppActivity::class.java)
-                    startActivity(intent)
-                    requireActivity().finish()
-                   /* val action=LoginFragmentDirections.actionLoginFragmentToHomeFragment()
-                    Navigation.findNavController(view).navigate(action) */
-                }
-            }
-        }
+
         binding.forgotPassword.setOnClickListener {
             val action=LoginFragmentDirections.actionLoginFragmentToForgotFragment()
             Navigation.findNavController(view).navigate(action)
@@ -72,8 +63,6 @@ class LoginFragment : Fragment() {
             auth.signInWithEmailAndPassword(email,password).addOnSuccessListener {
                 val intent= Intent(context,AppActivity::class.java)
                 startActivity(intent)
-               /* val action=LoginFragmentDirections.actionLoginFragmentToHomeFragment()
-                Navigation.findNavController(view).navigate(action)*/
                 requireActivity().finish()
             }.addOnFailureListener {
                 binding.progressLogin.visibility=View.GONE

@@ -46,43 +46,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
-        <TextView
-            android:id="@+id/greetingText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hoşgeldin"
-            android:textColor="#000000"
-            android:fontFamily="@font/graphik_medium"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="8dp"
-            android:textSize="24sp" />
-        <TextView
-            android:id="@+id/warningText"
-            android:layout_width="wrap_content"
-            android:fontFamily="@font/graphik_medium"
-            android:layout_height="wrap_content"
-            android:text="*Gider Girmeden Önce Varlık Girmelisin"
-            android:layout_marginLeft="40dp"
-            android:textColor="@android:color/holo_red_light"></TextView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/mainCardview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardElevation="10dp"
-        app:cardCornerRadius="10dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
-
-
-        >
         <RelativeLayout
+            android:id="@+id/mainCardview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:background="@drawable/card"
+            android:background="@drawable/line"
+
             >
 
             <TextView
@@ -90,24 +60,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/netWorth"
-                android:layout_alignStart="@+id/netWorth"
+                android:layout_centerInParent="true"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
-                android:padding="5dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="15dp"
-                android:fontFamily="@font/graphik_regular"
+                android:padding="5dp"
                 android:text="0 ₺"
-                android:textColor="@color/white"
-                android:textSize="28sp" />
+                android:textColor="@color/black"
+                android:textSize="30sp" />
             <TextView
                 android:id="@+id/expensesTotalText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-0 ₺"
-                android:textColor="@android:color/holo_red_light"
+                android:textColor="#707070"
                 android:layout_alignBaseline="@+id/savingsText"
-                android:layout_toRightOf="@+id/savingsText"
+                android:layout_toRightOf="@+id/netWorth"
                 android:textSize="18sp"></TextView>
 
                 <TextView
@@ -117,12 +86,12 @@
                     android:layout_below="@+id/expensesTotalText"
                     android:text="Mustafa Gülay"
                     android:textAllCaps="true"
-                    android:textColor="@color/white"
-                    android:fontFamily="@font/graphik_medium"
+                    android:textColor="@color/black"
+                    android:fontFamily="sans-serif-medium"
                    android:layout_marginLeft="10dp"
                     android:layout_marginBottom="8dp"
                     android:layout_marginTop="30dp"
-                    android:textSize="16sp"></TextView>
+                    android:textSize="14sp"></TextView>
 
 
             <TextView
@@ -130,12 +99,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_alignParentTop="true"
-                android:fontFamily="@font/graphik_medium"
-                android:text="Cüzdan"
-                android:textColor="@color/white"
-                android:textSize="22sp"></TextView>
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif-medium"
+                android:text="Varlıklarım"
+                android:textColor="@color/black"
+                android:textSize="20sp"></TextView>
 
             <ImageView
                 android:id="@+id/changeSaving"
@@ -148,10 +118,18 @@
                 android:layout_marginBottom="10dp"
                 android:layout_toRightOf="@+id/netWorth"
                 android:src="@drawable/add"
-                app:tint="@color/white"></ImageView>
+                app:tint="@color/black"></ImageView>
 
         </RelativeLayout>
-    </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/warningText"
+            android:layout_width="wrap_content"
+            android:fontFamily="@font/graphik_medium"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content"
+            android:text="*Gider Girmeden Önce Varlık Girmelisin"
+            android:textColor="@android:color/holo_red_light"></TextView>
+
         <ProgressBar
             android:id="@+id/fragmentProgress"
             android:layout_width="wrap_content"
@@ -174,10 +152,11 @@
         android:layout_gravity=""
         app:cardElevation="10sp">
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:id="@+id/secondpayment"
             android:padding="10dp"
+            android:layout_marginRight="5dp"
             android:orientation="vertical">
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -198,13 +177,15 @@
                     android:id="@+id/changeRegularExes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:layout_margin="5dp"
-                    android:layout_toRightOf="@id/regularExtenseTitle"
                     android:layout_alignBottom="@+id/regularExtenseTitle"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_toRightOf="@id/regularExtenseTitle"
                     android:src="@drawable/add"
-                    app:tint="#2752E7"
-                    ></ImageView>
+                    android:visibility="gone"
+                    app:tint="#2752E7"></ImageView>
             </RelativeLayout>
 
             <TextView
@@ -213,7 +194,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="Kira Giderleri"
-                android:fontFamily="@font/graphik_regular"
+                android:fontFamily="@font/graphik_medium"
                 android:textColor="@color/black"></TextView>
             <TextView
                 android:id="@+id/rentPaymentText"
@@ -231,7 +212,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="Taksitler"
-                android:fontFamily="@font/graphik_regular"
+                android:fontFamily="@font/graphik_medium"
                 android:textColor="@color/black"></TextView>
             <TextView
                 android:id="@+id/installmentsText"
@@ -254,7 +235,7 @@
         app:cardElevation="10sp"
         >
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#2752E7"
             android:padding="15dp"
@@ -305,7 +286,6 @@
         android:layout_marginLeft="20dp"
         app:cardCornerRadius="15dp"
         android:layout_marginRight="20dp"
-        android:backgroundTint="@color/white"
         android:layout_marginBottom="10dp">
         <RelativeLayout
             android:layout_width="match_parent"
@@ -350,6 +330,7 @@
             android:id="@+id/mainRecycler"
             android:layout_width="match_parent"
             android:visibility="gone"
+            android:padding="5dp"
             android:layout_height="match_parent"
             android:layout_below="@id/monthlyExes"
             android:layout_marginTop="10dp"
