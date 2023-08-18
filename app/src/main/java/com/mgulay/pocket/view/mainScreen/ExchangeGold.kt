@@ -8,16 +8,15 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mgulay.pocket.databinding.FragmentExchangeBinding
-import com.mgulay.pocket.model.ExchangeVal
+import com.mgulay.pocket.R
+import com.mgulay.pocket.adapter.ExchangeValuableAdapter
 import com.mgulay.pocket.adapter.exchangeAdapter
+import com.mgulay.pocket.databinding.FragmentExchangeGoldBinding
 import com.mgulay.pocket.viewmodel.ExchangeFragmentViewModel
+import com.mgulay.pocket.viewmodel.ExchangeGoldViewModel
 
-class ExchangeFragment : Fragment() {
-    lateinit var binding:FragmentExchangeBinding
-    lateinit var exchangeList:ArrayList<ExchangeVal>
-    var mustafa:String?=null
-
+class ExchangeGold : Fragment() {
+    lateinit var binding:FragmentExchangeGoldBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,24 +27,21 @@ class ExchangeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        binding= FragmentExchangeBinding.inflate(layoutInflater)
+        binding= FragmentExchangeGoldBinding.inflate(layoutInflater)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        var viewModel=ViewModelProvider(this).get(ExchangeFragmentViewModel::class.java)
-        var adapter= exchangeAdapter(arrayListOf())
-        binding.exchangeRcy.layoutManager=LinearLayoutManager(view.context)
+        var viewModel= ViewModelProvider(this).get(ExchangeGoldViewModel::class.java)
+        var adapter= ExchangeValuableAdapter(arrayListOf())
+        binding.exchangeRcy.layoutManager= LinearLayoutManager(view.context)
         binding.exchangeRcy.adapter=adapter
         binding.exchangeRcy.addItemDecoration(
             DividerItemDecoration(view.context,
                 DividerItemDecoration.VERTICAL)
         )
-        viewModel.getData(view,adapter,binding.exProgress,binding.exchangeRcy)
+        viewModel.getValuableMaterials(view,binding.exProgress,binding.exchangeRcy,adapter)
     }
-
 
 }

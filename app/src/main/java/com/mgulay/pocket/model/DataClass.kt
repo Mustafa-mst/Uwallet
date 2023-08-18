@@ -114,6 +114,26 @@ data class DataClass (
     var ceyrek_altin : Ceyrek_altin?=Ceyrek_altin(),
     @SerializedName("tam-altin")
     var tam_altin:Tam_altin?=Tam_altin(),
+    @SerializedName("yarim-altin")
+    var yarim_altin:Yarim_altin?=Yarim_altin(),
+@SerializedName("cumhuriyet-altini")
+var cumhuriyet_altini : Cumhuriyet_altini? = Cumhuriyet_altini(),
+@SerializedName("ata-altin")
+var ata_altin: Ata_altin?= Ata_altin(),
+@SerializedName("14-ayar-altin")
+var onDort_ayar_altin:onDort_ayar_altin?=onDort_ayar_altin(),
+@SerializedName("18-ayar-altin")
+var onSekiz_ayar_altin:onSekiz_ayar_altin?=onSekiz_ayar_altin(),
+@SerializedName("besli-altin")
+var besli_altin: Besli_altin?= Besli_altin(),
+@SerializedName("gremse-altin")
+var gremse_altin: Gremse_altin?= Gremse_altin(),
+@SerializedName("resat-altin")
+var resat_altin: Resat_altin?= Resat_altin(),
+@SerializedName("hamit-altin")
+var hamit_altin: Hamit_altin?= Hamit_altin(),
+@SerializedName("gumus")
+var gumus: Gumus?= Gumus()
 
 
 
@@ -132,16 +152,7 @@ class THB(
     var img= R.drawable.thailand
 }
 
-class Tam_altin(
-    @SerializedName("Alış") var Alis: String? = null,
-    @SerializedName("Tür") var Tur: String? = null,
-    @SerializedName("Satış") var Satis: String? = null,
-    @SerializedName("Değişim") var Degisim: String? = null
-){
-    override fun toString(): String {
-        return "Tam Altın"
-    }
-}
+
 class CAD(
     @SerializedName("Alış") var Alis: String? = null,
     @SerializedName("Tür") var Tur: String? = null,
@@ -809,9 +820,21 @@ class BGN (
      @SerializedName("Değişim") var Degisim: String? = null
 ){
      override fun toString(): String {
-         return "Gram Altın"
+         return "GRAM"
      }
+     var img=R.drawable.gold
  }
+class Tam_altin(
+    @SerializedName("Alış") var Alis: String? = null,
+    @SerializedName("Tür") var Tur: String? = null,
+    @SerializedName("Satış") var Satis: String? = null,
+    @SerializedName("Değişim") var Degisim: String? = null
+){
+    override fun toString(): String {
+        return "Tam Altın"
+    }
+    var img=R.drawable.gold
+}
  class Ceyrek_altin (
 
      @SerializedName("Alış") var Alis: String? = null,
@@ -821,6 +844,138 @@ class BGN (
 
 ){
      override fun toString(): String {
-         return "Çeyrek Altın"
+         return "ÇEYREK"
      }
+     var img=R.drawable.gold
  }
+class Yarim_altin (
+
+    @SerializedName("Alış") var Alis: String? = null,
+    @SerializedName("Tür") var Tur: String? = null,
+    @SerializedName("Satış") var Satis: String? = null,
+    @SerializedName("Değişim") var Degisim: String? = null
+
+){
+    override fun toString(): String {
+        return "YARIM"
+    }
+    var img=R.drawable.gold
+}
+class Cumhuriyet_altini (
+
+    @SerializedName("Alış") var Alis: String? = null,
+    @SerializedName("Tür") var Tur: String? = null,
+    @SerializedName("Satış") var Satis: String? = null,
+    @SerializedName("Değişim") var Degisim: String? = null
+
+){
+    override fun toString(): String {
+        return "CUMHURİYET"
+    }
+    var img=R.drawable.gold
+}
+class Ata_altin (
+
+    @SerializedName("Alış") var Alis: String? = null,
+    @SerializedName("Tür") var Tur: String? = null,
+    @SerializedName("Satış") var Satis: String? = null,
+    @SerializedName("Değişim") var Degisim: String? = null
+
+){
+    override fun toString(): String {
+        return "ATA"
+    }
+    var img=R.drawable.gold
+}
+class onDort_ayar_altin (
+
+    @SerializedName("Alış") var Alis: String? = null,
+    @SerializedName("Tür") var Tur: String? = null,
+    @SerializedName("Satış") var Satis: String? = null,
+    @SerializedName("Değişim") var Degisim: String? = null
+
+){
+    override fun toString(): String {
+        return "14 AYAR"
+    }
+    var img=R.drawable.gold
+}
+class onSekiz_ayar_altin (
+
+    @SerializedName("Alış") var Alis: String? = null,
+    @SerializedName("Tür") var Tur: String? = null,
+    @SerializedName("Satış") var Satis: String? = null,
+    @SerializedName("Değişim") var Degisim: String? = null
+
+){
+    override fun toString(): String {
+        return "18 AYAR"
+    }
+    var img=R.drawable.gold
+}
+
+class Besli_altin (
+
+    @SerializedName("Alış") var Alis: String? = null,
+    @SerializedName("Tür") var Tur: String? = null,
+    @SerializedName("Satış") var Satis: String? = null,
+    @SerializedName("Değişim") var Degisim: String? = null
+
+){
+    override fun toString(): String {
+        return "BEŞLİ"
+    }
+    var img=R.drawable.gold
+}
+class Gremse_altin (
+
+    @SerializedName("Alış") var Alis: String? = null,
+    @SerializedName("Tür") var Tur: String? = null,
+    @SerializedName("Satış") var Satis: String? = null,
+    @SerializedName("Değişim") var Degisim: String? = null
+
+){
+    override fun toString(): String {
+        return "GRAMSE"
+    }
+    var img=R.drawable.gold
+}
+class Hamit_altin (
+
+    @SerializedName("Alış") var Alis: String? = null,
+    @SerializedName("Tür") var Tur: String? = null,
+    @SerializedName("Satış") var Satis: String? = null,
+    @SerializedName("Değişim") var Degisim: String? = null
+
+){
+    override fun toString(): String {
+        return "HAMİT"
+    }
+    var img=R.drawable.gold
+}
+class Resat_altin (
+
+    @SerializedName("Alış") var Alis: String? = null,
+    @SerializedName("Tür") var Tur: String? = null,
+    @SerializedName("Satış") var Satis: String? = null,
+    @SerializedName("Değişim") var Degisim: String? = null
+
+){
+    override fun toString(): String {
+        return "REŞAT"
+    }
+    var img=R.drawable.gold
+}
+class Gumus (
+
+    @SerializedName("Alış") var Alis: String? = null,
+    @SerializedName("Tür") var Tur: String? = null,
+    @SerializedName("Satış") var Satis: String? = null,
+    @SerializedName("Değişim") var Degisim: String? = null
+
+){
+    override fun toString(): String {
+        return "GÜMÜŞ"
+    }
+    var img=R.drawable.silver
+}

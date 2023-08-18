@@ -1,10 +1,10 @@
-package com.mgulay.pocket.model
+package com.mgulay.pocket.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.mgulay.pocket.R
 import com.mgulay.pocket.databinding.RecyclerRowBinding
+import com.mgulay.pocket.model.Spending
 
 open class recyclerAdapter(var list:ArrayList<Spending>):RecyclerView.Adapter<recyclerAdapter.ExpensesVh>() {
     class ExpensesVh(val binding:RecyclerRowBinding):RecyclerView.ViewHolder(binding.root) {

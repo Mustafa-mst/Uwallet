@@ -1,19 +1,11 @@
 package com.mgulay.pocket.view.mainScreen
 
-import android.app.AlertDialog
-import android.content.DialogInterface
-import android.content.Intent
 import android.os.Bundle
-import android.text.Layout
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.Toast
-import androidx.core.view.marginBottom
-import androidx.core.view.setPadding
+import androidx.core.view.WindowCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,9 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mgulay.pocket.R
 import com.mgulay.pocket.databinding.FragmentHomeBinding
-import com.mgulay.pocket.model.Utils
-import com.mgulay.pocket.model.recyclerAdapter
-import com.mgulay.pocket.view.loginStuff.MainActivity
+import com.mgulay.pocket.adapter.recyclerAdapter
 import com.mgulay.pocket.viewmodel.HomeFragmentVievModel
 
 
@@ -32,9 +22,10 @@ open class HomeFragment : Fragment() {
     private lateinit var auth: FirebaseAuth
     private lateinit var database: FirebaseFirestore
     private lateinit var viewModel: HomeFragmentVievModel
-    private lateinit var adapter:recyclerAdapter
+    private lateinit var adapter: recyclerAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 
     }
 
@@ -50,7 +41,7 @@ open class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.exchangeCardView.setOnClickListener {
-            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.container,ExchangeFragment()).commit()
+            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.container,ShowAllExchange()).commit()
         }
         initialize(view)
 

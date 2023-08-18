@@ -6,38 +6,25 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
-import android.media.Image
 import android.text.InputType
-import android.view.Display.Mode
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Spinner
-import android.widget.TextView
 import android.widget.Toast
-import androidx.cardview.widget.CardView
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.SetOptions
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.mgulay.pocket.R
 import com.mgulay.pocket.model.Spending
-import com.mgulay.pocket.model.recyclerAdapter
+import com.mgulay.pocket.adapter.recyclerAdapter
 import com.mgulay.pocket.view.loginStuff.MainActivity
-import java.lang.Exception
 
 class HomeFragmentVievModel:ViewModel() {
     private var allExpenses=0
@@ -51,7 +38,7 @@ class HomeFragmentVievModel:ViewModel() {
     var progressBar=MutableLiveData<Boolean>()
     var arrayList= ArrayList<Spending>()
 
-    fun GetFromFirebase(refresh:recyclerAdapter,view: View,database:FirebaseFirestore,auth: FirebaseAuth){
+    fun GetFromFirebase(refresh: recyclerAdapter, view: View, database:FirebaseFirestore, auth: FirebaseAuth){
         progressBar.value=true
         database.collection("Users").document(auth.currentUser!!.uid).get().addOnSuccessListener {
             progressBar.value=false
@@ -159,7 +146,7 @@ class HomeFragmentVievModel:ViewModel() {
         dialog.show()
 
     }
-    fun addExpenses(view:View,refresh:recyclerAdapter,auth: FirebaseAuth,database: FirebaseFirestore){
+    fun addExpenses(view:View, refresh: recyclerAdapter, auth: FirebaseAuth, database: FirebaseFirestore){
 
         val spinLay=LayoutInflater.from(view.context).inflate(R.layout.spinner_custom,null)
         var expensesList= listOf("\uD83D\uDD35 Ev","\uD83D\uDFE1 Kişisel"
@@ -224,7 +211,7 @@ class HomeFragmentVievModel:ViewModel() {
             }
         }
 
-    fun getExpensesToFirebase(database: FirebaseFirestore,auth: FirebaseAuth,refresh:recyclerAdapter){
+    fun getExpensesToFirebase(database: FirebaseFirestore,auth: FirebaseAuth,refresh: recyclerAdapter){
 
         database.collection("Expenses").whereEqualTo("userId",auth.currentUser!!.uid).get().addOnSuccessListener {
             if (!it.isEmpty){

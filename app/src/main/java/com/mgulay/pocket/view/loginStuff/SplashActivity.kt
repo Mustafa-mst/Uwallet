@@ -1,21 +1,25 @@
 package com.mgulay.pocket.view.loginStuff
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.navigation.Navigation
+import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.WindowCompat
 import com.google.firebase.auth.FirebaseAuth
-import com.mgulay.pocket.R
 import com.mgulay.pocket.databinding.ActivitySplashBinding
 import com.mgulay.pocket.view.mainScreen.AppActivity
+
 
 class SplashActivity : AppCompatActivity() {
     lateinit var binding: ActivitySplashBinding
     lateinit var auth:FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         binding= ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth= FirebaseAuth.getInstance()

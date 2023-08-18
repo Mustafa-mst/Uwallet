@@ -23,7 +23,7 @@ class AppActivity : AppCompatActivity() {
             }
             R.id.chartPage->{replaceFragment(ChartFragment())
             true}
-            R.id.exchangePage->{replaceFragment(ExchangeFragment())
+            R.id.exchangePage->{replaceFragment(ShowAllExchange())
             true}
             else ->{}
           }

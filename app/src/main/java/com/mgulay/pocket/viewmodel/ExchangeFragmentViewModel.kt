@@ -1,39 +1,32 @@
 package com.mgulay.pocket.viewmodel
 
+import android.graphics.Color
 import android.view.View
 import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.storage.FirebaseStorage
-import com.mgulay.pocket.R
-import com.mgulay.pocket.model.DataClass
 import com.mgulay.pocket.model.ExchangeVal
-import com.mgulay.pocket.model.exchangeAdapter
+import com.mgulay.pocket.adapter.exchangeAdapter
 import com.mgulay.pocket.model.retrofit
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.supervisorScope
 import kotlinx.coroutines.withContext
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class ExchangeFragmentViewModel:ViewModel() {
     private var exList=ArrayList<ExchangeVal>()
     private var storage:FirebaseStorage= FirebaseStorage.getInstance()
-    fun getData(view:View,adapter:exchangeAdapter,progress:ProgressBar,recycler:RecyclerView){
+    fun getData(view:View, adapter: exchangeAdapter, progress:ProgressBar, recycler:RecyclerView){
         progress.visibility=View.VISIBLE
         recycler.visibility=View.GONE
-        var instance=storage.reference.child("images/albenia.png").downloadUrl.addOnSuccessListener {
-            println(it)
-        }
         var retro= retrofit()
         var handler= CoroutineExceptionHandler({ coroutineContext, throwable ->
-            Snackbar.make(view,throwable.localizedMessage,Snackbar.LENGTH_SHORT).show()})
+            Snackbar.make(view,throwable.localizedMessage,Snackbar.LENGTH_SHORT).setTextColor(
+                Color.parseColor("#FFFFFF")
+            ).setBackgroundTint(Color.parseColor("#2752E7")).show()})
         CoroutineScope(Dispatchers.IO+handler).launch {
                 var get=retro.retrom.getValues()
                 withContext(Dispatchers.Main){
@@ -96,9 +89,6 @@ class ExchangeFragmentViewModel:ViewModel() {
                         adapter.refreshExList(exList)
                     }
                 }
-            fun add(){
-
-            }
 
 
         }

@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".view.mainScreen.HomeFragment"
     >
     <RelativeLayout
@@ -63,7 +64,7 @@
                 android:layout_centerInParent="true"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginEnd="15dp"
+
                 android:layout_marginBottom="15dp"
                 android:padding="5dp"
                 android:text="0 ₺"
@@ -75,6 +76,7 @@
                 android:layout_height="wrap_content"
                 android:text="-0 ₺"
                 android:textColor="#707070"
+                android:layout_marginLeft="15dp"
                 android:layout_alignBaseline="@+id/savingsText"
                 android:layout_toRightOf="@+id/netWorth"
                 android:textSize="18sp"></TextView>
@@ -112,7 +114,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/netWorth"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
@@ -319,10 +321,10 @@
 
             <TextView
                 android:id="@+id/isEmpty"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_below="@id/monthlyExes"
-                android:layout_centerInParent="true"
+                android:textAlignment="center"
                 android:fontFamily="@font/graphik_regular"
                 android:padding="30dp"
                 android:text="Girilmiş Gider Yok"></TextView>
